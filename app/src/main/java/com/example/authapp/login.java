@@ -3,6 +3,8 @@ package com.example.authapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +22,7 @@ public class login extends AppCompatActivity {
     FloatingActionButton fb,google,twitter;
     float v=0;
     public static final String sharedDB="users";
-    private EditText email,pass,cpass,name,loginPass,loginEmail;
+    private EditText email,pass,name,loginPass,loginEmail;
 
     DataBaseHelper mydb;
 
@@ -31,8 +33,29 @@ public class login extends AppCompatActivity {
         tabLayout=findViewById(R.id.tab_layout);
         viewpager=findViewById(R.id.view_pager);
         fb=findViewById(R.id.fab_fa);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                url ("https://www.facebook.com/spicebazaarregina");
+
+            }
+        });
         google=findViewById(R.id.fab_google);
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                url ("https://accounts.google.com/ServiceLogin/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin");
+
+            }
+        });
         twitter=findViewById(R.id.fab_tw);
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                url ("https://twitter.com/?lang=en");
+
+            }
+        });
 
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Register"));
@@ -75,6 +98,12 @@ public class login extends AppCompatActivity {
         google.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(600).start();
         twitter.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(800).start();
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(1000).start();
+
+    }
+
+    private void url(String s) {
+    Uri uri = (Uri.parse(s));
+    startActivity(new Intent( Intent.ACTION_VIEW,uri));
 
     }
 }

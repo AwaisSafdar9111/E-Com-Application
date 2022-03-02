@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:src="@drawable/bg_1"
+        android:src="@drawable/spics"
         app:layout_constraintHeight_percent=".27"
         android:scaleType="centerCrop"
         app:layout_constraintVertical_bias="0"
@@ -85,6 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_pager"
             app:tint="@null"
+
             />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_tw"
